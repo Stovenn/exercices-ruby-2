@@ -14,7 +14,7 @@ devises = ["Bitcoin", "Ethereum", "XRP", "Bitcoin Cash", "EOS", "Litecoin", "Car
 
 def biggest_value(my_hash)
   lol =  my_hash.max_by{|k, v| v.delete_prefix('$').to_f}
-  puts "#{lol}"
+  return "#{lol}"
 end
 
 
@@ -22,7 +22,7 @@ end
 
 def smallest_value(my_hash)
   lol = my_hash.min_by{|k, v| v.delete_prefix('$').to_f}
-  puts "#{lol}"
+  return "#{lol}"
 end
 
 
@@ -30,8 +30,8 @@ end
 
 def coin(my_hash)
   counter = 0
-  lol = my_hash.each_key {|key| counter += 1 if key.downcase =~ /coin/ }
-  puts "#{counter}"
+  my_hash.each_key {|key| counter += 1 if key.downcase =~ /coin/ }
+  return "#{counter}"
 end
 
 
@@ -46,4 +46,11 @@ end
 
 
 
-puts hmorethan6000(my_hash)
+
+
+# Retirer les commentaires pour executer les méthodes : 
+
+# puts biggest_value(my_hash)
+# puts smallest_value(my_hash)
+# puts coin(my_hash)
+# puts lessthan6000(my_hash)
