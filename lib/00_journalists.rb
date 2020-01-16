@@ -8,7 +8,7 @@ def count_journalist(array)
   journalist.each do |journalist|
     counter += 1
   end
-  puts "Il y a #{counter} journalistes"
+  return "Il y a #{counter} journalistes"
 end
 
 # Combien d'handle contiennent un numéro ?
@@ -20,7 +20,7 @@ def numero?(array)
       counter +=1
     end
   end
-  puts "#{counter}"
+  return "#{counter} handles contiennent un numéro"
 end
 
 
@@ -35,7 +35,7 @@ def aude?(array)
       counter += 1 
     end
   end
-  puts "#{counter}"
+  return "#{counter} handles contiennent les 4 lettres du prénom 'Aude'"
 end
 
 # Combien commencent par une majuscule (première lettre juste après le @) ?
@@ -46,11 +46,10 @@ def first_upper?(array)
 
   journalists.each do |journalist|
     if journalist[1] =~ /[A-Z]/
-      puts "#{journalist}"
       counter += 1 
     end
   end
-  puts "#{counter}"
+  return "#{counter} handles commmencent par une majuscule"
 end
 
 
@@ -62,11 +61,10 @@ def contains_upper?(array)
   journalists.each do |journalist|
     puts "#{journalist.length}"
       if journalist =~ (/[A-Z]/)
-        puts "#{journalist}"
         counter += 1 
       end
     end
-  puts "#{counter}"
+  return "#{counter} handles contiennent une majuscule"
 end
 
 # Combien y a-t-il de underscore _ dans tous les pseudos confondus ?
@@ -80,7 +78,7 @@ def underscore(array)
       counter += under  
     end
   end
-  puts counter
+  return "#{counter} handles contiennent un underscore"
 end
 
 
@@ -89,7 +87,7 @@ end
 def sort(array)
   journalists = array
   journalists.sort!{|a1, a2| a1.downcase <=> a2.downcase}
-  puts "#{journalists}"
+  return "#{journalists}"
 end
 
 # Quels sont les 50 handles les plus courts de ce array ?
@@ -100,7 +98,7 @@ def short(array)
   journalists[0..49].each do |journalist|
     tab << journalist
   end
-  puts "#{tab}"
+  return "#{tab}"
 end
 
 # Quelle est la position dans l'array de la personne @epenser ?
@@ -108,7 +106,7 @@ end
 def position(array)
   journalists = array 
   index = journalists.find_index("@epenser")
-  puts "#{index}"
+  return "@epenser se situe a la #{index+1}eme position"
 end
 
 
@@ -136,24 +134,23 @@ game = "Y"
 
     case choice
     when 1
-      count_journalist(array)
-      game == "N"
+      puts count_journalist(array)
     when 2
-      numero?(array)
+      puts numero?(array)
     when 3
-      aude?(array)
+      puts aude?(array)
     when 4
-      first_upper?(array)
+      puts first_upper?(array)
     when 5
-      contains_upper?(array)
+      puts contains_upper?(array)
     when 6
-      underscore(array)
+      puts underscore(array)
     when 7
-      sort(array)
+      puts sort(array)
     when 8
-      short(array)
+      puts short(array)
     when 9
-      position(array)
+      puts position(array)
     when 0
       abort "Bye Bye"
     else

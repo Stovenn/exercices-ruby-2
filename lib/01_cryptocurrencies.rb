@@ -37,13 +37,13 @@ end
 
 # Les devises, dont le cours est inférieur à 6000 (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice).
 
-def morethan6000(my_hash)
-  my_hash.sort_by { |value| value}
+def lessthan6000(my_hash)
+  return my_hash.select { |key, value| value.delete_prefix('$').to_f < 6000}
 end
 
 
 # La devise la plus chère parmi celles dont le cours est inférieur à 6000.
 
-def lessthan6000(my_hash)
-  
-end
+
+
+puts hmorethan6000(my_hash)
